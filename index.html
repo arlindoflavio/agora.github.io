@@ -1,9 +1,181 @@
-<!doctype html>
-<html>
-  <head>
-    <title>This is the title of the webpage!</title>
-  </head>
-  <body>
-    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Emily Johnson - Researcher in Cognitive Psychology</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            margin: 10px 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .contact-info {
+            margin-bottom: 20px;
+        }
+        .contact-info a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .publications ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .publications li {
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .tabs a {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #333;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            transition: background-color 0.3s;
+        }
+        .tabs a:hover {
+            background-color: #ddd;
+        }
+        .tabs a.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 0 0 5px 5px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .profile-picture {
+            display: block;
+            margin: 20px auto;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Dr. Emily Johnson</h1>
+    <h2>Researcher in Cognitive Psychology</h2>
+</header>
+
+<div class="container">
+
+    <img class="profile-picture" src="profile_picture.jpg" alt="Dr. Emily Johnson">
+
+    <div class="tabs">
+        <a href="#" class="tab-link active" data-tab="about">About</a>
+        <a href="#" class="tab-link" data-tab="research-interests">Research Interests</a>
+        <a href="#" class="tab-link" data-tab="publications">Publications</a>
+        <a href="#" class="tab-link" data-tab="contact-info">Contact Information</a>
+        <a href="#" class="tab-link" data-tab="connect">Connect with Me</a>
+    </div>
+
+    <section id="about" class="tab-content active">
+        <h3>About Me</h3>
+        <p>I obtained my Ph.D. in Psychology from [University Name] in [Year]. Since then, I have been actively involved in both academic research and teaching. Currently, I serve as an Assistant Professor in the Department of Psychology at [University Name].</p>
+    </section>
+
+    <section id="research-interests" class="tab-content">
+        <h3>Research Interests</h3>
+        <ul>
+            <li>Memory Processes</li>
+            <li>Decision-Making</li>
+            <li>Cognitive Aging</li>
+        </ul>
+    </section>
+
+    <section id="publications" class="tab-content">
+        <h3>Publications</h3>
+        <ul>
+            <li>Johnson, E., & Smith, A. (2023). "The Role of Attention in Memory Encoding." <em>Journal of Cognitive Psychology</em>, 45(2), 201-215.</li>
+            <li>Brown, R., Johnson, E., & Lee, C. (2022). "Decision-Making Strategies in Complex Environments." <em>Journal of Experimental Psychology: Applied</em>, 30(4), 501-517.</li>
+            <li>Garcia, M., Johnson, E., & Patel, S. (2021). "Cognitive Training and Memory Performance in Older Adults." <em>Aging, Neuropsychology, and Cognition</em>, 28(3), 301-315.</li>
+        </ul>
+    </section>
+
+    <section id="contact-info" class="tab-content">
+        <h3>Contact Information</h3>
+        <p>Email: <a href="mailto:emily.johnson@university.edu">emily.johnson@university.edu</a></p>
+        <p>Office: [Building Name], Room [Number]</p>
+        <p>Phone: [Your Phone Number]</p>
+    </section>
+
+    <section id="connect" class="tab-content">
+        <h3>Connect with Me</h3>
+        <p><a href="#">LinkedIn</a></p>
+        <p><a href="#">Twitter</a></p>
+        <p><a href="#">ResearchGate</a></p>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2024 Dr. Emily Johnson - All rights reserved</p>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const tabs = document.querySelectorAll(".tab-link");
+        const tabContents = document.querySelectorAll(".tab-content");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", function() {
+                const tabId = this.getAttribute("data-tab");
+
+                tabs.forEach(link => {
+                    link.classList.remove("active");
+                });
+
+                tabContents.forEach(content => {
+                    content.classList.remove("active");
+                    if (content.id === tabId) {
+                        content.classList.add("active");
+                    }
+                });
+
+                this.classList.add("active");
+            });
+        });
+    });
+</script>
+
+</body>
 </html>
